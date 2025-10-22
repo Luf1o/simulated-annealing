@@ -1,7 +1,12 @@
 import numpy as np
 
+flags = {
+    "price": 0
+}
+
+
 """Ackley Function"""
-def ackley(x):
+def Ackley(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     n = len(x)
     if n == 0:
@@ -13,7 +18,7 @@ def ackley(x):
 
 
 """Beale has only 2 variable test function"""
-def beale(x):
+def Beale(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Beale function requires exactly 2 variables")
@@ -24,7 +29,7 @@ def beale(x):
     return term1 + term2 + term3
 
 
-def booth(x):
+def Booth(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Booth function requires exactly 2 variables")
@@ -32,7 +37,7 @@ def booth(x):
     return (x[0] + 2*x[1] - 7)**2 + (2*x[0] + x[1] - 5)**2
 
 
-def mvfBohachevsky1(x):
+def Bohachevsky1(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Bohachevsky1 function requires exactly 2 variables")
@@ -42,7 +47,7 @@ def mvfBohachevsky1(x):
             - 0.4*np.cos(4*np.pi*x1) + 0.7)
 
     
-def mvfBohachevsky2(x):
+def Bohachevsky2(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Bohachevsky2 function requires exactly 2 variables")
@@ -52,7 +57,7 @@ def mvfBohachevsky2(x):
             - 0.3*np.cos(3*np.pi*x0)*np.cos(4*np.pi*x1) + 0.3)
 
     
-def mvfBoxBetts(x):
+def BoxBetts(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 3:
         raise ValueError("BoxBetts function requires exactly 3 variables")
@@ -67,7 +72,7 @@ def mvfBoxBetts(x):
     return total
 
 
-def mvfBranin1(x):
+def Branin1(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Branin1 function requires exactly 2 variables")
@@ -78,7 +83,7 @@ def mvfBranin1(x):
     return term1**2 + term2
 
 
-def mvfBranin2(x):
+def Branin2(x):
     """
     Modified Branin2 Function
     Typically evaluated on [-5, 10] × [0, 15]
@@ -93,7 +98,7 @@ def mvfBranin2(x):
     return term1**2 + term2**2
 
 
-def mvfCamel3(x):
+def Camel3(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Camel3 function requires exactly 2 variables")
@@ -102,7 +107,7 @@ def mvfCamel3(x):
     return 2*x0**2 - 1.05*x0**4 + x0**6/6 + x0*x1 + x1**2
 
 
-def mvfCamel6(x):
+def Camel6(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Camel6 function requires exactly 2 variables (was 3)")
@@ -114,7 +119,7 @@ def mvfCamel6(x):
     return t0 + t1 + t2
 
 
-def mvfChichinadze(x):
+def Chichinadze(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Chichinadze function requires exactly 2 variables")
@@ -125,7 +130,7 @@ def mvfChichinadze(x):
             - np.sqrt(0.2)*np.exp(-0.5*(x1 - 0.5)**2))
 
 
-def mvfCola(x):
+def Cola(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     n = len(x)
     if n < 2:
@@ -136,7 +141,7 @@ def mvfCola(x):
     return sum1 + sum2
 
 
-def mvfColville(x):
+def Colville(x):
     """Colville is a 4-d function"""
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 4:
@@ -149,7 +154,7 @@ def mvfColville(x):
             19.8*(x2 - 1)*(x4 - 1))
 
 
-def mvfCorona(x):
+def Corona(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Corona function requires exactly 2 variables")
@@ -162,7 +167,7 @@ def mvfCorona(x):
     return (1 - 1/r_sq)**2 + 0.1*(r_sq - 1)**2
 
 
-def mvfEasom(x):
+def Easom(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Easom function requires exactly 2 variables")
@@ -171,7 +176,7 @@ def mvfEasom(x):
     return -np.cos(x1)*np.cos(x2)*np.exp(-((x1 - np.pi)**2 + (x2 - np.pi)**2))
 
 
-def mvfEggHolder(x):
+def EggHolder(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("EggHolder function requires exactly 2 variables")
@@ -183,7 +188,7 @@ def mvfEggHolder(x):
     return term1 + term2
 
 
-def mvfExp2(x):
+def Exp2(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Exp2 function requires exactly 2 variables")
@@ -196,7 +201,7 @@ def mvfExp2(x):
     return np.exp(exponent)
 
 
-def mvfHansen(x):
+def Hansen(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Hansen function requires exactly 2 variables")
@@ -207,7 +212,7 @@ def mvfHansen(x):
     return term1 * term2
 
 
-def mvfHartmann3(x):
+def Hartmann3(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 3:
         raise ValueError("Hartmann3 function requires exactly 3 variables")
@@ -232,7 +237,7 @@ def mvfHartmann3(x):
     return -outer
 
 
-def mvfHartmann6(x):
+def Hartmann6(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 6:
         raise ValueError("Hartmann6 function requires exactly 6 variables")
@@ -257,7 +262,7 @@ def mvfHartmann6(x):
     return -outer
 
 
-def mvfHimmelblau(x):
+def Himmelblau(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Himmelblau function requires exactly 2 variables")
@@ -266,7 +271,7 @@ def mvfHimmelblau(x):
     return (x1**2 + x2 - 11)**2 + (x1 + x2**2 - 7)**2
 
 
-def mvfHyperellipsoid(x):
+def Hyperellipsoid(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
         raise ValueError("Input array cannot be empty")
@@ -274,7 +279,7 @@ def mvfHyperellipsoid(x):
     return np.sum(np.arange(1, len(x) + 1) * x**2)
 
 
-def mvfHolzman(x):
+def Holzman(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Holzman function requires exactly 2 variables")
@@ -283,7 +288,7 @@ def mvfHolzman(x):
     return (x1**2 + x2**2 - np.cos(18*x1) - np.cos(18*x2))**2
 
 
-def mvfHosaki(x):
+def Hosaki(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Hosaki function requires exactly 2 variables")
@@ -297,7 +302,7 @@ def mvfHosaki(x):
             * x2**2 * np.exp(-x2))
 
 
-def mvfKowalik(x):
+def Kowalik(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 4:
         raise ValueError("Kowalik function requires exactly 4 variables")
@@ -317,7 +322,7 @@ def mvfKowalik(x):
     return total
 
 
-def mvfKatsuura(x):
+def Katsuura(x):
     """
     Katsuura Function
     Domain: -100 ≤ xi ≤ 100
@@ -337,7 +342,7 @@ def mvfKatsuura(x):
     return (10 / d**2) * (prod - 1)
 
 
-def mvfLangermann(x):
+def Langermann(x):
     """
     Langermann Function
     Domain: 0 ≤ xi ≤ 10
@@ -359,7 +364,7 @@ def mvfLangermann(x):
     return result
 
 
-def mvfLennardJones(x):
+def LennardJones(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("LennardJones function requires exactly 2 variables")
@@ -373,7 +378,7 @@ def mvfLennardJones(x):
     return 4.0 * (inv_r_12 - inv_r_6)
 
 
-def mvfLeon(x):
+def Leon(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Leon function requires exactly 2 variables")
@@ -382,7 +387,7 @@ def mvfLeon(x):
     return 100*(x1 - x0**3)**2 + (1.0 - x0)**2
 
 
-def mvfLevy(x):
+def Levy(x):
     """
     Levy Function
     Domain: -10 ≤ xi ≤ 10
@@ -406,7 +411,7 @@ def mvfLevy(x):
     return term1 + term2 + term3
 
 
-def mvfMatyas(x):
+def Matyas(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Matyas function requires exactly 2 variables")
@@ -415,7 +420,7 @@ def mvfMatyas(x):
     return 0.26*(x0**2 + x1**2) - 0.48*x0*x1
 
 
-def mvfMaxFold(x):
+def MaxFold(x):
     """Maximum of absolute values"""
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
@@ -423,7 +428,7 @@ def mvfMaxFold(x):
     return np.max(np.abs(x))
 
 
-def mvfMcCormick(x):
+def McCormick(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("McCormick function requires exactly 2 variables")
@@ -432,7 +437,7 @@ def mvfMcCormick(x):
     return np.sin(x0 + x1) + (x0 - x1)**2 - 1.5*x0 + 2.5*x1 + 1
 
 
-def mvfMichalewicz(x, m=10):
+def Michalewicz(x, m=10):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     if d == 0:
@@ -442,7 +447,7 @@ def mvfMichalewicz(x, m=10):
     return -np.sum(np.sin(x) * (np.sin(i*x**2/np.pi))**(2*m))
 
 
-def mvfMultimod(x):
+def Multimod(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
         raise ValueError("Input array cannot be empty")
@@ -451,7 +456,7 @@ def mvfMultimod(x):
     return np.sum(abs_x) * np.prod(abs_x)
 
 
-def mvfPaviani(x):
+def Paviani(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 10:
         raise ValueError("Paviani function requires exactly 10 variables")
@@ -498,7 +503,7 @@ def booth(x):
     return (x[0] + 2*x[1] - 7)**2 + (2*x[0] + x[1] - 5)**2
 
 
-def mvfBohachevsky1(x):
+def Bohachevsky1(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Bohachevsky1 function requires exactly 2 variables")
@@ -508,7 +513,7 @@ def mvfBohachevsky1(x):
             - 0.4*np.cos(4*np.pi*x1) + 0.7)
 
     
-def mvfBohachevsky2(x):
+def Bohachevsky2(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Bohachevsky2 function requires exactly 2 variables")
@@ -518,7 +523,7 @@ def mvfBohachevsky2(x):
             - 0.3*np.cos(3*np.pi*x0)*np.cos(4*np.pi*x1) + 0.3)
 
     
-def mvfBoxBetts(x):
+def BoxBetts(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 3:
         raise ValueError("BoxBetts function requires exactly 3 variables")
@@ -533,7 +538,7 @@ def mvfBoxBetts(x):
     return total
 
 
-def mvfBranin1(x):
+def Branin1(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Branin1 function requires exactly 2 variables")
@@ -544,7 +549,7 @@ def mvfBranin1(x):
     return term1**2 + term2
 
 
-def mvfBranin2(x):
+def Branin2(x):
     """
     Modified Branin2 Function
     Typically evaluated on [-5, 10] × [0, 15]
@@ -559,7 +564,7 @@ def mvfBranin2(x):
     return term1**2 + term2**2
 
 
-def mvfCamel3(x):
+def Camel3(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Camel3 function requires exactly 2 variables")
@@ -568,7 +573,7 @@ def mvfCamel3(x):
     return 2*x0**2 - 1.05*x0**4 + x0**6/6 + x0*x1 + x1**2
 
 
-def mvfCamel6(x):
+def Camel6(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Camel6 function requires exactly 2 variables (was 3)")
@@ -580,7 +585,7 @@ def mvfCamel6(x):
     return t0 + t1 + t2
 
 
-def mvfChichinadze(x):
+def Chichinadze(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Chichinadze function requires exactly 2 variables")
@@ -591,7 +596,7 @@ def mvfChichinadze(x):
             - np.sqrt(0.2)*np.exp(-0.5*(x1 - 0.5)**2))
 
 
-def mvfCola(x):
+def Cola(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     n = len(x)
     if n < 2:
@@ -602,7 +607,7 @@ def mvfCola(x):
     return sum1 + sum2
 
 
-def mvfColville(x):
+def Colville(x):
     """Colville is a 4-d function"""
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 4:
@@ -615,7 +620,7 @@ def mvfColville(x):
             19.8*(x2 - 1)*(x4 - 1))
 
 
-def mvfCorona(x):
+def Corona(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Corona function requires exactly 2 variables")
@@ -628,7 +633,7 @@ def mvfCorona(x):
     return (1 - 1/r_sq)**2 + 0.1*(r_sq - 1)**2
 
 
-def mvfEasom(x):
+def Easom(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Easom function requires exactly 2 variables")
@@ -637,7 +642,7 @@ def mvfEasom(x):
     return -np.cos(x1)*np.cos(x2)*np.exp(-((x1 - np.pi)**2 + (x2 - np.pi)**2))
 
 
-def mvfEggHolder(x):
+def EggHolder(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("EggHolder function requires exactly 2 variables")
@@ -649,7 +654,7 @@ def mvfEggHolder(x):
     return term1 + term2
 
 
-def mvfExp2(x):
+def Exp2(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Exp2 function requires exactly 2 variables")
@@ -662,7 +667,7 @@ def mvfExp2(x):
     return np.exp(exponent)
 
 
-def mvfHansen(x):
+def Hansen(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Hansen function requires exactly 2 variables")
@@ -673,7 +678,7 @@ def mvfHansen(x):
     return term1 * term2
 
 
-def mvfHartmann3(x):
+def Hartmann3(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 3:
         raise ValueError("Hartmann3 function requires exactly 3 variables")
@@ -698,7 +703,7 @@ def mvfHartmann3(x):
     return -outer
 
 
-def mvfHartmann6(x):
+def Hartmann6(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 6:
         raise ValueError("Hartmann6 function requires exactly 6 variables")
@@ -723,7 +728,7 @@ def mvfHartmann6(x):
     return -outer
 
 
-def mvfHimmelblau(x):
+def Himmelblau(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Himmelblau function requires exactly 2 variables")
@@ -732,7 +737,7 @@ def mvfHimmelblau(x):
     return (x1**2 + x2 - 11)**2 + (x1 + x2**2 - 7)**2
 
 
-def mvfHyperellipsoid(x):
+def Hyperellipsoid(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
         raise ValueError("Input array cannot be empty")
@@ -740,7 +745,7 @@ def mvfHyperellipsoid(x):
     return np.sum(np.arange(1, len(x) + 1) * x**2)
 
 
-def mvfHolzman(x):
+def Holzman(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Holzman function requires exactly 2 variables")
@@ -749,7 +754,7 @@ def mvfHolzman(x):
     return (x1**2 + x2**2 - np.cos(18*x1) - np.cos(18*x2))**2
 
 
-def mvfHosaki(x):
+def Hosaki(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Hosaki function requires exactly 2 variables")
@@ -763,7 +768,7 @@ def mvfHosaki(x):
             * x2**2 * np.exp(-x2))
 
 
-def mvfKowalik(x):
+def Kowalik(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 4:
         raise ValueError("Kowalik function requires exactly 4 variables")
@@ -783,7 +788,7 @@ def mvfKowalik(x):
     return total
 
 
-def mvfKatsuura(x):
+def Katsuura(x):
     """
     Katsuura Function
     Domain: -100 ≤ xi ≤ 100
@@ -803,7 +808,7 @@ def mvfKatsuura(x):
     return (10 / d**2) * (prod - 1)
 
 
-def mvfLangermann(x):
+def Langermann(x):
     """
     Langermann Function
     Domain: 0 ≤ xi ≤ 10
@@ -825,7 +830,7 @@ def mvfLangermann(x):
     return result
 
 
-def mvfLennardJones(x):
+def LennardJones(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("LennardJones function requires exactly 2 variables")
@@ -839,7 +844,7 @@ def mvfLennardJones(x):
     return 4.0 * (inv_r_12 - inv_r_6)
 
 
-def mvfLeon(x):
+def Leon(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Leon function requires exactly 2 variables")
@@ -848,7 +853,7 @@ def mvfLeon(x):
     return 100*(x1 - x0**3)**2 + (1.0 - x0)**2
 
 
-def mvfLevy(x):
+def Levy(x):
     """
     Levy Function
     Domain: -10 ≤ xi ≤ 10
@@ -872,7 +877,7 @@ def mvfLevy(x):
     return term1 + term2 + term3
 
 
-def mvfMatyas(x):
+def Matyas(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("Matyas function requires exactly 2 variables")
@@ -881,7 +886,7 @@ def mvfMatyas(x):
     return 0.26*(x0**2 + x1**2) - 0.48*x0*x1
 
 
-def mvfMaxFold(x):
+def MaxFold(x):
     """Maximum of absolute values"""
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
@@ -889,7 +894,7 @@ def mvfMaxFold(x):
     return np.max(np.abs(x))
 
 
-def mvfMcCormick(x):
+def McCormick(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 2:
         raise ValueError("McCormick function requires exactly 2 variables")
@@ -898,7 +903,7 @@ def mvfMcCormick(x):
     return np.sin(x0 + x1) + (x0 - x1)**2 - 1.5*x0 + 2.5*x1 + 1
 
 
-def mvfMichalewicz(x, m=10):
+def Michalewicz(x, m=10):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     if d == 0:
@@ -908,7 +913,7 @@ def mvfMichalewicz(x, m=10):
     return -np.sum(np.sin(x) * (np.sin(i*x**2/np.pi))**(2*m))
 
 
-def mvfMultimod(x):
+def Multimod(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) == 0:
         raise ValueError("Input array cannot be empty")
@@ -917,7 +922,7 @@ def mvfMultimod(x):
     return np.sum(abs_x) * np.prod(abs_x)
 
 
-def mvfPaviani(x):
+def Paviani(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 10:
         raise ValueError("Paviani function requires exactly 10 variables")
@@ -931,7 +936,7 @@ def mvfPaviani(x):
     return term1 - term2
 
 
-def mvfPowell(x):
+def Powell(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -953,7 +958,7 @@ def mvfPowell(x):
     return total
 
 
-def mvfPrice(x):
+def Price(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     if len(x) != 3:
         raise ValueError("Price function requires exactly 3 variables")
@@ -968,12 +973,16 @@ def mvfPrice(x):
     
     term1 = (2*x3 - np.log(x1))**2
     term2 = (x2 - np.log(x1))**2
-    term3 = (np.exp(x2/x1) - x3)**2
+    if flags["price"] < 1:
+        print('Debug: clipping enabled due to RuntimeWarning: Overflow ')
+        flags["price"] = 1
+    term3 = (np.exp(np.clip(x2/x1, -100, 100)) - x3)**2
+
     
     return term1 + term2 + term3
 
 
-def mvfQuartic(x):
+def Quartic(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -984,20 +993,20 @@ def mvfQuartic(x):
     return np.sum(i * x**4)
 
 
-def mvfQuarticNoise(x, noise_scale=0.1):
+def QuarticNoise(x, noise_scale=0.1):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
     if d == 0:
         raise ValueError("Input array cannot be empty")
     
-    base_value = mvfQuartic(x)
+    base_value = Quartic(x)
     noise = np.random.normal(0, noise_scale)
     
     return base_value + noise
 
 
-def mvfRana(x):
+def Rana(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -1021,7 +1030,7 @@ def mvfRana(x):
     return total
 
 
-def mvfRastrigin(x):
+def Rastrigin(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -1032,7 +1041,7 @@ def mvfRastrigin(x):
     return A*d + np.sum(x**2 - A*np.cos(2*np.pi*x))
 
 
-def mvfRosenbrock(x):
+def Rosenbrock(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -1046,7 +1055,7 @@ def mvfRosenbrock(x):
     return total
 
 
-def mvfRosenbrockGeneralized(x):
+def RosenbrockGeneralized(x):
     x = np.atleast_1d(np.array(x, dtype=float))
     d = len(x)
     
@@ -1058,7 +1067,7 @@ def mvfRosenbrockGeneralized(x):
     
     return np.sum(100*(x1 - x0**2)**2 + (1 - x0)**2)
 
-def mvfSchaffer(x):
+def Schaffer(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("Schaffer function is 2-dimensional")
@@ -1066,11 +1075,11 @@ def mvfSchaffer(x):
     den = (1 + 0.001 * (x[0]**2 + x[1]**2))**2
     return 0.5 + num / den
 
-def mvfSchwefel(x):
+def Schwefel(x):
     x = np.array(x)
     return 418.9829 * len(x) - np.sum(x * np.sin(np.sqrt(np.abs(x))))
 
-def mvfShubert(x):
+def Shubert(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("Shubert function is 2-dimensional")
@@ -1079,7 +1088,7 @@ def mvfShubert(x):
     sum2 = np.sum(i * np.cos((i + 1) * x[1] + i))
     return sum1 * sum2
 
-def mvfShekelFoxholes(x):
+def ShekelFoxholes(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("Shekel's Foxholes function is 2-dimensional")
@@ -1096,15 +1105,15 @@ def mvfShekelFoxholes(x):
     
     return (1 / (1/500 + sum_term))  # Reciprocal of the sum
 
-def mvfSphere(x):
+def Sphere(x):
     x = np.array(x)
     return np.sum(x**2)
 
-def mvfStep(x):
+def Step(x):
     x = np.array(x)
     return np.sum(np.floor(x + 0.5)**2)
 
-def mvfStretchedV(x):
+def StretchedV(x):
     x = np.array(x)
     s = 0
     for i in range(len(x) - 1):
@@ -1112,18 +1121,18 @@ def mvfStretchedV(x):
         s += term * (np.sin(50 * (x[i]**2 + x[i+1]**2)**0.1)**2 + 0.1)
     return s
 
-def mvfSumSquares(x):
+def SumSquares(x):
     x = np.array(x)
     i = np.arange(1, len(x) + 1)
     return np.sum(i * x**2)
 
-def mvfTrecanni(x):
+def Trecanni(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("Trecanni function is 2-dimensional")
     return x[0]**4 - 4*x[0]**3 + 4*x[0]**2 + x[1]**2
 
-def mvfXOR(x):
+def XOR(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("XOR function is 2-dimensional")
@@ -1131,7 +1140,7 @@ def mvfXOR(x):
     return s1 + s2 - 2 * s1 * s2
 
 
-def mvfWatson(x):
+def Watson(x):
     x = np.array(x)
     n = len(x)
     a = np.arange(1, 30) / 29.0
@@ -1143,7 +1152,7 @@ def mvfWatson(x):
     return total + x[0]**2
 
 
-def mvfTrefethen4(x):
+def Trefethen4(x):
     x = np.array(x)
     if len(x) != 2:
         raise ValueError("Trefethen No.4 function is 2-dimensional")
@@ -1158,13 +1167,78 @@ def mvfTrefethen4(x):
     )
 import numpy as np
 
-def mvfZettl(x):
+def Zettl(x):
     x = np.array(x)
     x1, x2 = x[0], x[1]
     return (x1**2 + x2**2 - 2*x1)**2 + 0.25*x1
 
 
-def mvfZimmerman(x):
+def Zimmerman(x):
     x = np.array(x)
     x1, x2 = x[0], x[1]
     return np.max([abs(x1), abs(x2), abs(x1 + x2 - 2), abs(x1 - x2 + 1)])
+
+
+__all__ = [
+    'Ackley',
+    'Beale',
+    'Bohachevsky1',
+    'Bohachevsky2',
+    'Booth',
+    'BoxBetts',
+    'Branin1',
+    'Branin2',
+    'Camel3',
+    'Camel6',
+    'Chichinadze',
+    'Cola',
+    'Colville',
+    'Corona',
+    'Easom',
+    'EggHolder',
+    'Exp2',
+    'Hansen',
+    'Hartmann3',
+    'Hartmann6',
+    'Himmelblau',
+    'Holzman',
+    'Hosaki',
+    'Hyperellipsoid',
+    'Katsuura',
+    'Kowalik',
+    'Langermann',
+    'LennardJones',
+    'Leon',
+    'Levy',
+    'Matyas',
+    'MaxFold',
+    'McCormick',
+    'Michalewicz',
+    'Multimod',
+    'Paviani',
+    'Powell',
+    'Price',
+    'Quartic',
+    'QuarticNoise',
+    'Rana',
+    'Rastrigin',
+    'Rosenbrock',
+    'RosenbrockGeneralized',
+    'Schaffer',
+    'Schwefel',
+    'ShekelFoxholes',
+    'Shubert',
+    'Sphere',
+    'Step',
+    'StretchedV',
+    'SumSquares',
+    'Trecanni',
+    'Trefethen4',
+    'Watson',
+    'XOR',
+    'Zettl',
+    'Zimmerman',
+    'ackley',
+    'beale',
+    'booth',
+]
